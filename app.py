@@ -13,3 +13,7 @@ def char_select():
     return render_template('char_sel.html')
 
 #TODO battle room
+@app.route("/battle_room")
+def battle_room():
+    return render_template('battle_room.html')
+
