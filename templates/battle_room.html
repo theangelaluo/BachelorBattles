@@ -48,27 +48,27 @@
         <h2 style="text-align: center">You</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
           <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename='kelsey.jpeg') }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Kelsey</h1>
-            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+            <img style="max-height: 150px" src={{ url_for('static', filename= deck[0].headshot) }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[0].name }}</h1>
+            <p style="font-size: 14px; margin: 1px">HP: {{ deck[0].hp }}</p>
           </div>
 
           <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename='lexi.jpeg') }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Lexi</h1>
-            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+            <img style="max-height: 150px" src={{ url_for('static', filename= deck[1].headshot) }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[1].name }}</h1>
+            <p style="font-size: 14px; margin: 1px">HP: {{ deck[1].hp }}</p>
           </div>
 
           <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename='natasha.jpeg') }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Natasha</h1>
-            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+            <img style="max-height: 150px" src={{ url_for('static', filename= deck[2].headshot) }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[2].name }}</h1>
+            <p style="font-size: 14px; margin: 1px">HP: {{ deck[2].hp }}</p>
           </div>
 
           <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename='mykenna.jpeg') }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Mykenna</h1>
-            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+            <img style="max-height: 150px" src={{ url_for('static', filename= deck[3].headshot) }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[3].name }}</h1>
+            <p style="font-size: 14px; margin: 1px">HP: {{ deck[3].hp }}</p>
           </div>
 
         </div>

@@ -31,13 +31,14 @@ def char_select():
         char4 = form.char4.data
         user.cards.append(makeCard(char4))
 
+
         return redirect(url_for('battle_room'))
     return render_template('char_sel.html', form = form)
 
 #battle room: at this point, user = [player's name, [list of cards in deck]]
 @app.route("/battle_room")
 def battle_room():
-    return render_template('battle_room.html')
+    return render_template('battle_room.html', deck = user.cards)
 
 
 
