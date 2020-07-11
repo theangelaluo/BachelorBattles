@@ -9,15 +9,71 @@
 
   <body>
     <div style="display: flex; flex-direction: column; align-items: center; font-family: Arial">
-      <h1 style="margin-bottom: 40px">Battle!</h1>
-      <div style="display: flex; flex-direction: row; margin-bottom: 20px; align-items: center; justify-content: center">
-        <p> Placeholder Text</p>
+
+      <div style="flex: 33.33%">
+        <h2 style="text-align: center">Opponent</h2>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='kelsey.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Kelsey</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='lexi.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Lexi</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='natasha.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Natasha</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='mykenna.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Mykenna</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+        </div>
       </div>
-      <div style="display: flex; flex-direction: row; margin-bottom: 20px; align-items: center; justify-content: center">
-        <p> Placeholder Text</p>
+
+      <div style="margin: 20px; flex: 33.33%; height: 100%">
+        <h2 style="text-align: center">Last move:</h2>
       </div>
-      <div style="display: flex; flex-direction: row; margin-bottom: 20px; align-items: center; justify-content: center">
-        <p> Placeholder Text</p>
+
+      <div style="flex: 33.33%">
+        <h2 style="text-align: center">You</h2>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='kelsey.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Kelsey</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='lexi.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Lexi</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='natasha.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Natasha</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img style="max-height: 150px" src={{ url_for('static', filename='mykenna.jpeg') }}>
+            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">Mykenna</h1>
+            <p style="font-size: 14px; margin: 1px">HP: 100</p>
+          </div>
+
+        </div>
+
+
       </div>
     </div>
   </body>
