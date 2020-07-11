@@ -14,7 +14,7 @@ def home():
 @app.route("/char_select")
 def char_select():
     form = Player_Form()
-    
+
     return render_template('char_sel.html', form = form)
 
 #TODO battle room
@@ -22,3 +22,5 @@ def char_select():
 def battle_room():
     return render_template('battle_room.html')
 
+if __name__ == "__main__":
+    app.run()
