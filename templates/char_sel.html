@@ -10,10 +10,13 @@
   <body>
     <div style="display: flex; flex-direction: column; align-items: center; font-family: Arial" class ="formwrapper">
       <h1 style="margin-bottom: 40px">Pick your character</h1>
-      <form method="POST" action="/">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
         <div class="form-field">{{ form.name.label }} {{ form.name(size=20) }}</div>
         <div class="form-field">{{ form.char1.label }} {{ form.char1 }}</div>
-        {{ form.submit }}
+        <div  class= "form-group">
+          {{ form.submit}}
+        </div>
     </form>
     </div>
   </body>
