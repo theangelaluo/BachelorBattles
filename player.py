@@ -11,8 +11,8 @@ contestants = {
     'Victoria P': (100, 'victoria_p.jpeg','testMove8'),
     'Shiann': (100, 'shiann.jpeg','testMove9'),
     'Kiarra': (100, 'kiarra.jpeg','testMove10'),
-    'Alayah': (100, 'alayah.jpeg','testMove11')
-
+    'Alayah': (100, 'alayah.jpeg','testMove11'),
+    'Mykenna': (100, 'mykenna.jpeg','testMove12')
 }
 
 #format moveName = damage
@@ -29,6 +29,7 @@ moves = {
     'testMove9': 100,
     'testMove10': 50,
     'testMove11': 150,
+    'testMove12': 150,
 }
 
 #Player object: contains the name of the player and their deck of 'cards'
@@ -36,7 +37,7 @@ class Player:
     def __init__(self, name, cards):
         self.name = name
         self.cards = cards
-    
+
 #Card object: contains the name of the bachelorette, their hp, and their signature move (i haven't added in the headshot bc idk how)
 class Card:
     def __init__(self, name, headshot, hp, move):
@@ -64,12 +65,26 @@ def makeCard(character):
     card = Card(character, contestant[1], contestant[0], move)
     return card
 
+
+#function to attack, called after form is submitted
+def attack(playerName, playerCard, opponentCard):
+    if playerName != "Opponent":
+        damage = playerCard.move.damage
+        opponentCard.hp -= damage
+        if opponentCard.hp <= 0:
+            return opponentCard.name + " has been sent home"
+        return playerCard.name + " dealt " + str(damage) + " amount of damage to " + opponentCard.name
+    else:
+        damage = opponentCard.move.damage
+        playerCard.hp -= damage
+        if playerCard.hp <= 0:
+            return playerCard.name + " has been sent home"
+        return opponentCard.name + " dealt " + str(damage) + " amount of damage to " + playerCard.name
+
+
 #gets the names of the current bachelorettes and puts them in tuple form (bc that's the only way dropdown menus work for some reason)
-def dropdown():
+def dropdown(lst):
     characters = []
-    for key in contestants:
+    for key in lst:
         characters.append((key, key))
     return characters
-
-
-
