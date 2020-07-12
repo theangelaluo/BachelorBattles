@@ -17,6 +17,7 @@ def home():
 def char_select():
     form = PlayerForm()
     if form.validate_on_submit():
+        user.cards.clear()
         user.name = form.name.data
 
         char1 = form.char1.data

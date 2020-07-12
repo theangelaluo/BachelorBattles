@@ -7,6 +7,12 @@ contestants = {
     'Hannah Ann': (100, 'hannah_ann.jpeg', 'testMove4'),
     'Victoria F': (100, 'victoria_f.jpeg','testMove5'),
     'Tammy': (100, 'tammy.jpeg','testMove6'),
+    'Sydney': (100, 'sydney.jpeg','testMove7'),
+    'Victoria P': (100, 'victoria_p.jpeg','testMove8'),
+    'Shiann': (100, 'shiann.jpeg','testMove9'),
+    'Kiarra': (100, 'kiarra.jpeg','testMove10'),
+    'Alayah': (100, 'alayah.jpeg','testMove11')
+
 }
 
 #format moveName = damage
@@ -18,7 +24,11 @@ moves = {
     'testMove4': 50,
     'testMove5': 150,
     'testMove6': 150
-
+    'testMove7': 50,
+    'testMove8': 150,
+    'testMove9': 100,
+    'testMove10': 50,
+    'testMove11': 150,
 }
 
 #Player object: contains the name of the player and their deck of 'cards'
