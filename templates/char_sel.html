@@ -9,15 +9,15 @@
 
   <body>
     <div style="display: flex; flex-direction: column; align-items: center; font-family: Arial" class ="formwrapper">
-      <h1 style="margin-bottom: 40px">Pick your character</h1>
+      <h1 style="margin-top: 40px; margin-bottom: 20px">Pick your character</h1>
       <form method="POST" action="">
         {{ form.hidden_tag() }}
-        <div class="form-field">{{ form.name.label }} {{ form.name(size=20) }}</div>
-        <div class="form-field">{{ form.char1.label }} {{ form.char1 }}</div>
-        <div class="form-field">{{ form.char2.label }} {{ form.char2 }}</div>
-        <div class="form-field">{{ form.char3.label }} {{ form.char3 }}</div>
-        <div class="form-field">{{ form.char4.label }} {{ form.char4 }}</div>
-        <div  class= "form-group">
+        <div class="form-field" style="margin: 5px">{{ form.name.label }} {{ form.name(size=20) }}</div>
+        <div class="form-field" style="margin: 5px">{{ form.char1.label }} {{ form.char1 }}</div>
+        <div class="form-field" style="margin: 5px">{{ form.char2.label }} {{ form.char2 }}</div>
+        <div class="form-field" style="margin: 5px">{{ form.char3.label }} {{ form.char3 }}</div>
+        <div class="form-field" style="margin: 5px">{{ form.char4.label }} {{ form.char4 }}</div>
+        <div class= "form-group" style="margin-top: 20px">
           {{ form.submit}}
         </div>
     </form>
