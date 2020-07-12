@@ -88,3 +88,15 @@ def dropdown(lst):
     for key in lst:
         characters.append((key, key))
     return characters
+
+#check to see who's left
+def checkDeck(lst):
+    for element in lst:
+        if element.hp > 0:
+            return True
+    return False
+
+
+    
+
+

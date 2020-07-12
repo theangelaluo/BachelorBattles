@@ -1,11 +1,10 @@
 from flask import Flask, render_template, url_for, redirect
 from form import PlayerForm
-from player import Player, Card, Move, makeCard, dropdown, attack
-
+from player import Player, Card, Move, makeCard, dropdown, attack, checkDeck
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
-
+import random
 import time
 
 app = Flask(__name__)
@@ -46,23 +45,43 @@ def char_select():
 @app.route("/battle_room", methods = ['GET', 'POST'])
 def battle_room():
     from turnForm import TurnForm, OpponentForm
+    show = 0
     form = TurnForm()
     opponentForm = OpponentForm()
     form.first.choices = dropdown([card.name for card in user.cards])
+    winner = endgame(opponent, user)
+    if winner == opponent or winner == user:
+        message = winner.name + " won!"
+        show = 2
+        return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
     if form.validate_on_submit():
         first = form.first.data
         second = form.second.data
-        message = attack(user.name, findElem(first, user.cards), findElem(second, opponent.cards))
-        return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm)
+        if (findElem(second, opponent.cards)).hp <= 0:
+            message = second + " is gone. Please Try again"
+            return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
+        else:
+            show = 1
+            message = attack(user.name, findElem(first, user.cards), findElem(second, opponent.cards))
+            return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
     if opponentForm.validate_on_submit():
-        message = attack("Opponent", user.cards[0], opponent.cards[1])
-        return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm)
-    else:
-        pass
-    return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, opponentForm=opponentForm, message="It's your move! Select one of your cards to attack and one of your opponent's cards as the target.")
+        first = user.cards[random.randint(0,3)]
+        second = user.cards[random.randint(0,3)]
+        show = 0
+        while second.hp <= 0:
+            second = user.cards[random.randint(0,3)]
+        message = attack("Opponent", first, second)
+        return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
+    return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, opponentForm=opponentForm, message="It's your move! Select one of your cards to attack and one of your opponent's cards as the target.", show = show)
 
 
 
+#endgame
+def endgame(opponent, player):
+    if not checkDeck(opponent.cards):
+        return player
+    elif not checkDeck(player.cards):
+        return opponent
 
 def findElem(itemName, lst):
     for elem in lst:
