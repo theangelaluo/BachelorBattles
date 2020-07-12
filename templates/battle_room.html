@@ -40,12 +40,12 @@
         </div>
       </div>
 
-      <div style="margin: 20px; flex: 33.33%; height: 100%">
-        <h2 style="text-align: center">Last move:</h2>
+      <div style="margin-top: 20px; flex: 33.33%; height: 100%">
+        <h2 style="text-align: center">It's your move! Select one of your cards to attack and one of your opponent's cards as the target.</h2>
       </div>
 
       <div style="flex: 33.33%">
-        <h2 style="text-align: center">You</h2>
+        <h2 style="text-align: center">{{ name }}</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
           <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
             <img style="max-height: 150px" src={{ url_for('static', filename= deck[0].headshot) }}>

@@ -4,13 +4,13 @@ from player import Player, Card, Move, makeCard
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fa68a37a2368cc3a03c3c0fc1079b8e2' #helps something about cookies
-user = Player("", []) 
+user = Player("", [])
 
 
 @app.route("/home")
 @app.route("/")
 def home():
-    return render_template('home.html') 
+    return render_template('home.html')
 
 #char screen
 @app.route("/char_select", methods = ['GET', 'POST'])
@@ -39,7 +39,7 @@ def char_select():
 #battle room: at this point, user = [player's name, [list of cards in deck]]
 @app.route("/battle_room")
 def battle_room():
-    return render_template('battle_room.html', deck = user.cards)
+    return render_template('battle_room.html', deck = user.cards, name=user.name)
 
 
 
