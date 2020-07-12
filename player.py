@@ -23,7 +23,7 @@ moves = {
     'testMove3': 100,
     'testMove4': 50,
     'testMove5': 150,
-    'testMove6': 150
+    'testMove6': 150,
     'testMove7': 50,
     'testMove8': 150,
     'testMove9': 100,
