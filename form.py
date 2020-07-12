@@ -13,3 +13,4 @@ class PlayerForm(FlaskForm):
     char3 = SelectField('Third Card:', validators = [DataRequired()], choices = allCharacters)
     char4 = SelectField('Fourth Card:', validators = [DataRequired()], choices = allCharacters)
     submit = SubmitField('Play')
+

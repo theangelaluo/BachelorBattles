@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect
 from form import PlayerForm
-from player import Player, Card, Move, makeCard, dropdown, attack, checkDeck
+from player import Player, Card, Move, makeCard, dropdown, attack, checkDeck, contestants
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
@@ -9,8 +9,25 @@ import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fa68a37a2368cc3a03c3c0fc1079b8e2' #helps something about cookies
+
+def findElem(itemName, lst):
+    for elem in lst:
+        if elem.name == itemName:
+            return elem
+    return None
+
+charList = list(contestants.keys())
 user = Player("", [])
-opponent = Player("Opponent", [makeCard("Kelsey"), makeCard("Lexi"), makeCard("Natasha"), makeCard("Mykenna")])
+opponent = Player("Opponent", [])
+
+#makeCard("Kelsey"), makeCard("Lexi"), makeCard("Natasha"), makeCard("Mykenna")
+while len(opponent.cards) < 4:
+    index = random.randint(0, len(charList) - 1)
+    elem = charList[index]
+    if findElem(elem, opponent.cards) == None:
+        opponent.cards.append(makeCard(elem))
+    
+
 opponentCharacters = dropdown([card.name for card in opponent.cards])
 
 @app.route("/home")
@@ -84,11 +101,7 @@ def endgame(opponent, player):
     elif not checkDeck(player.cards):
         return opponent
 
-def findElem(itemName, lst):
-    for elem in lst:
-        if elem.name == itemName:
-            return elem
-    return None
+
 
 
 if __name__ == "__main__":
