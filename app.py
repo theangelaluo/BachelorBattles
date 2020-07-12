@@ -57,20 +57,21 @@ def battle_room():
     if form.validate_on_submit():
         first = form.first.data
         second = form.second.data
-        if (findElem(second, opponent.cards)).hp <= 0:
-            message = second + " is gone. Please Try again"
+        if (findElem(second, opponent.cards)).hp <= 0 or (findElem(first, user.cards)).hp <=0:
+            message = "Please Try again"
             return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
         else:
             show = 1
             message = attack(user.name, findElem(first, user.cards), findElem(second, opponent.cards))
             return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
     if opponentForm.validate_on_submit():
-        first = user.cards[random.randint(0,3)]
+        first = opponent.cards[random.randint(0,3)]
         second = user.cards[random.randint(0,3)]
         show = 0
-        while second.hp <= 0:
+        while second.hp <= 0 or first.hp <= 0:
+            first = opponent.cards[random.randint(0,3)]
             second = user.cards[random.randint(0,3)]
-        message = attack("Opponent", first, second)
+        message = attack("Opponent", second, first)
         return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, message=message, opponentForm=opponentForm, show = show)
     return render_template('battle_room.html', deck = user.cards, name=user.name, opponentDeck = opponent.cards, form = form, opponentForm=opponentForm, message="It's your move! Select one of your cards to attack and one of your opponent's cards as the target.", show = show)
 
