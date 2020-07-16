@@ -13,6 +13,7 @@
       <div style="flex: 33.33%">
         <h2 style="text-align: center">Opponent</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+
           {% if show == 1 %}
           <form method="POST" action="">
             {{ opponentForm.hidden_tag() }}
@@ -23,37 +24,13 @@
           </form>
           {% endif %}
 
-          {% if opponentDeck[0].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename=opponentDeck[0].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ opponentDeck[0].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ opponentDeck[0].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if opponentDeck[1].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename=opponentDeck[1].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ opponentDeck[1].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ opponentDeck[1].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if opponentDeck[2].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename=opponentDeck[2].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ opponentDeck[2].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ opponentDeck[2].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if opponentDeck[3].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename=opponentDeck[3].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ opponentDeck[3].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ opponentDeck[3].hp }}</p>
-          </div>
-          {% endif %}
+          {% for card in opponentDeck %}
+            <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+                <img style="max-height: 150px" src={{ url_for('static', filename=card.headshot) }}>
+                <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ card.name }}</h1>
+                <p style="font-size: 14px; margin: 1px">HP: {{ card.hp }}</p>
+            </div>
+          {% endfor %}
 
         </div>
       </div>
@@ -65,38 +42,14 @@
       <div style="flex: 33.33%">
         <h2 style="text-align: center">{{ name }}</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+          {% for card in deck %}
+            <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
+                <img style="max-height: 150px" src={{ url_for('static', filename= card.headshot) }}>
+                <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ card.name }}</h1>
+                <p style="font-size: 14px; margin: 1px">HP: {{ card.hp }}</p>
+            </div>
+          {% endfor %}
 
-          {% if deck[0].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename= deck[0].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[0].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ deck[0].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if deck[1].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename= deck[1].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[1].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ deck[1].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if deck[2].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename= deck[2].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[2].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ deck[2].hp }}</p>
-          </div>
-          {% endif %}
-
-          {% if deck[3].hp > 0 %}
-          <div style="border-radius: 10px; margin-left: 10px; margin-right: 10px; border-style: solid; padding: 10px; border-width: 1; border-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center">
-            <img style="max-height: 150px" src={{ url_for('static', filename= deck[3].headshot) }}>
-            <h1 style="font-size: 18px; margin: 1px; margin-top: 5px">{{ deck[3].name }}</h1>
-            <p style="font-size: 14px; margin: 1px">HP: {{ deck[3].hp }}</p>
-          </div>
-          {% endif %}
         </div>
         
         {% if show == 0  %}
